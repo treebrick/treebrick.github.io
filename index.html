@@ -6,17 +6,15 @@
   <title>TREEBRICK</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
- <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=DM+Mono:wght@300;400&family=DM+Serif+Display&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background-color: #F7F2EC;
       color: #3A3D40;
       font-family: 'DM Sans', sans-serif;
       min-height: 100vh;
     }
-
     .page {
       max-width: 860px;
       margin: 0 auto;
@@ -26,13 +24,10 @@
       align-items: center;
       text-align: center;
     }
-
-    /* ── Title block ── */
     .title-block {
       width: 100%;
       margin-bottom: 60px;
     }
-
     h1 {
       font-size: clamp(3rem, 10vw, 7rem);
       font-weight: 700;
@@ -42,7 +37,6 @@
       color: #3A3D40;
       margin-bottom: 18px;
     }
-
     .subtitle {
       font-family: 'DM Mono', monospace;
       font-weight: 300;
@@ -50,31 +44,23 @@
       letter-spacing: 0.04em;
       color: #6A6E72;
     }
-
     .rule {
       width: 100%;
       border: none;
       border-top: 1px solid #3A3D4044;
       margin: 0;
     }
-
-    /* ── Photo ── */
     .photo-block {
       width: 100%;
       margin: 60px 0 0;
     }
-
     .photo-block img {
       width: 100%;
       max-width: 640px;
       height: auto;
       display: block;
       margin: 0 auto;
-      /* optional: subtle border */
-      /* border: 1px solid #3A3D4022; */
     }
-
-    /* ── Body text ── */
     .text-block {
       max-width: 560px;
       margin: 48px auto 0;
@@ -83,22 +69,26 @@
       line-height: 1.9;
       letter-spacing: 0.02em;
       color: #4A4E52;
-      text-align: center;
+      text-align: left;
     }
-
     .text-block p + p {
       margin-top: 1.2em;
     }
-
-    /* ── Footer rule ── */
+    .drop-cap {
+      float: left;
+      font-size: 4.5em;
+      line-height: 0.8;
+      margin-right: 8px;
+      margin-top: 4px;
+      font-family: 'DM Serif Display', serif;
+      color: #3A3D40;
+    }
     .footer-rule {
       width: 100%;
       border: none;
       border-top: 1px solid #3A3D4044;
       margin-top: 80px;
     }
-
-    /* ── Mobile ── */
     @media (max-width: 600px) {
       .page { padding: 50px 24px 70px; }
     }
@@ -106,34 +96,25 @@
 </head>
 <body>
   <div class="page">
-
     <div class="title-block">
       <h1>Treebrick</h1>
     </div>
-
     <hr class="rule" />
-
     <div class="photo-block">
       <img src="photo.png" alt="Your photo here" />
     </div>
-
-<div class="text-block" style="text-align: left;">
-  <p>Tension. Symbiosis. Struggle. The intoxicating contrast of organic and angular forms. The inevitable return of nature, or its demise? The loneliness of untranslatable words. How did this place that we call home come to be?</p> 
-    
-  <p>We are overcome by these thoughts and questions when we find ourselves in the vicinity of Chicago's greatest natural wonder: treebrick. This website is an attempt to celebrate not only treebrick, but also the surprising beauty of everyday things that it so well embodies. Thank you for visiting.</p>
-
-  <p>Questions for further discussion:</p>
-
-  <ul style="list-style: none; margin-top: 0.8em; line-height: 2.2;">
-     <li>· tension, or symbiosis? (are these different?)</li>
-     <li>· which is older: the tree or the brick?</li>
-     <li>· how does treebrick make you feel?</li>
-     <li>· what is art?</li>
-  </ul>
-</div>
-
+    <div class="text-block">
+      <p><span class="drop-cap">T</span>ension. Symbiosis. Struggle. The intoxicating contrast of organic and angular forms. The inevitable return of nature, or its demise? The loneliness of untranslatable words. How did this place that we call home come to be?</p>
+      <p>We are overcome by these thoughts and questions when we find ourselves in the vicinity of Chicago's greatest natural wonder: treebrick. This website is an attempt to celebrate not only treebrick, but also the surprising beauty of everyday things that it so well embodies. Thank you for visiting.</p>
+      <p>Questions for further discussion:</p>
+      <ul style="list-style: none; margin-top: 0.8em; line-height: 2.2;">
+        <li> tension, or symbiosis? (are these different?)</li>
+        <li> which is older: the tree or the brick?</li>
+        <li> how does treebrick make you feel?</li>
+        <li> what is art?</li>
+      </ul>
+    </div>
     <hr class="footer-rule" />
-
   </div>
 </body>
 </html>
