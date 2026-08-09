@@ -15,6 +15,53 @@
       font-family: 'DM Sans', sans-serif;
       min-height: 100vh;
     }
+
+    /* ── Three-dot nav ── */
+    .nav {
+      position: fixed;
+      top: 28px;
+      right: 32px;
+      z-index: 100;
+    }
+    .nav-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 8px;
+      line-height: 1;
+      color: #3A3D40;
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+      opacity: 0.55;
+      transition: opacity 0.15s;
+    }
+    .nav-toggle:hover { opacity: 1; }
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #F7F2EC;
+      border: 1px solid #3A3D4033;
+      padding: 6px 0;
+      min-width: 130px;
+    }
+    .nav-menu.open { display: block; }
+    .nav-menu a {
+      display: block;
+      padding: 9px 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3A3D40;
+      text-decoration: none;
+      transition: background 0.1s;
+    }
+    .nav-menu a:hover { background: #3A3D400a; }
+
+    /* ── Page layout ── */
     .page {
       max-width: 860px;
       margin: 0 auto;
@@ -91,10 +138,22 @@
     }
     @media (max-width: 600px) {
       .page { padding: 50px 24px 70px; }
+      .nav { top: 20px; right: 20px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Three-dot menu -->
+  <nav class="nav" id="nav">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">···</button>
+    <div class="nav-menu" id="nav-menu" role="menu">
+      <a href="#" role="menuitem">Home</a>
+      <a href="#about" role="menuitem">About</a>
+      <a href="survey.html" role="menuitem">Survey</a>
+    </div>
+  </nav>
+
   <div class="page">
     <div class="title-block">
       <h1>Treebrick</h1>
@@ -103,7 +162,7 @@
     <div class="photo-block">
       <img src="photo.png" alt="Your photo here" />
     </div>
-    <div class="text-block">
+    <div class="text-block" id="about">
       <p><span class="drop-cap">T</span>ension. Struggle. Symbiosis? The intoxicating contrast of organic and angular forms! The return of nature, or its inevitable demise? The loneliness of untranslatable words... The vertigo of living at the bleeding edge of history... </p>
       <p>We are overcome by these thoughts and questions when we find ourselves in the vicinity of Chicago's greatest preternatural wonder: treebrick. This website is an attempt to celebrate not only treebrick, but also the surprising beauty of everyday things that it so well embodies. Thank you for visiting.</p>
     <hr class="rule" style="margin: 3em 0;" />
@@ -123,6 +182,32 @@
 <p style="font-family: 'DM Mono', monospace; font-size: 0.6rem; font-weight: 300; letter-spacing: 0.1em; color: #6A6E72; margin-top: 40px;">
   <a href="https://www.instagram.com/matttarduno/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">@matttarduno</a>
 </p>  </div>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const menu   = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function() {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      }
+    });
+  </script>
+
 <script data-goatcounter="https://treebrick.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <!-- https://treebrick.goatcounter.com/ -->
 </body>
